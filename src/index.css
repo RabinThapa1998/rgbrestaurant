@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.card {
+  @apply flex flex-row justify-around items-center bg-specialdishbg p-5  w-full border-b border-bordercolor;
+}
+
+.specialdish-btn-container {
+  @apply w-133 h-7  grid grid-cols-2 divide-x text-primary border border-primary rounded mx-0 mt-3;
+}
+.specialdish-incrementbtn-container {
+  @apply grid grid-cols-3 place-items-center;
+}
+.specialdish-incrementbtn {
+  @apply h-7 w-7 rounded-lg;
+}
+.specialdish-incrementbtn-text {
+  @apply text-specialinctext text-center w-7 font-poppins font-medium text-base;
+}

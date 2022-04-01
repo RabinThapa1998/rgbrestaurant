@@ -1,0 +1,110 @@
+* {
+  margin: auto;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.swiper {
+  max-width: 425px !important;
+}
+
+.specialdish-imgsection {
+  height: auto;
+  width: auto;
+  max-width: 113px;
+  width: 100%;
+  object-fit: contain;
+  margin: 0px;
+}
+.specialdish-textsection {
+  max-width: 162px;
+  width: 100%;
+  display: block;
+  margin: 0px;
+}
+
+/* .btn-container {
+  width: 133px;
+  height: 28px;
+} */
+
+.increment-gradient-green {
+  background: linear-gradient(98.81deg, #53e88b -0.82%, #15be77 101.53%);
+}
+.decrement-gradient-green {
+  background: linear-gradient(98.81deg, #edf6ec -0.82%, #e8f2ea 101.53%);
+}
+.discounted-card-gradient {
+  background: linear-gradient(180deg, #ffffff 39.9%, #fff2f2 100%);
+}
+
+.increment-gradient-red {
+  background: linear-gradient(77.96deg, #ffffff -31.93%, #df0909 47.12%);
+}
+
+.decrement-gradient-red {
+  background: linear-gradient(98.81deg, #f5f1eb -0.82%, #ebe4d7 101.53%);
+}
+
+.css-1851lcu-MuiButtonBase-root-MuiTab-root {
+  /* margin: 5px 10px; */
+  /* padding: 5px; */
+  font-weight: 800 !important;
+  font-size: 16px !important;
+  text-transform: capitalize !important;
+}
+.css-1851lcu-MuiButtonBase-root-MuiTab-root.Mui-selected {
+  color: white;
+  font-style: "nunito";
+  font-weight: 900;
+  z-index: 10;
+}
+.MuiTabs-indicator {
+  height: 32px !important;
+  z-index: 0;
+  background-color: #db3b3f !important;
+  border-radius: 6px;
+  display: block;
+  top: 0;
+}
+.MuiTabs-indicator::after {
+  content: "";
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  background: #db3b3f;
+  z-index: 1;
+  bottom: -2px;
+  left: 40%;
+  transform: rotate(45deg) !important;
+}
+.css-19kzrtu {
+  padding: 0 !important;
+}
+
+.css-6189bu-MuiInputBase-root-MuiInput-root-MuiSelect-root::before {
+  border-bottom: none !important;
+}
+
+.MuiSelect-standard,
+.MuiInput-input {
+  font-weight: 700 !important;
+  font-style: "nunito" !important;
+  color: "#2E2E2E";
+  background: #fff !important;
+}
+.css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon,
+.css-1mf6u8l-MuiSvgIcon-root-MuiSelect-icon {
+  background: #e7e7e7 !important;
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+}
+.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input {
+  padding-right: 36px !important;
+  min-width: 16px;
+}
+
+.css-1ujnqem-MuiTabs-root .MuiTabs-scrollButtons {
+  display: inline-flex !important;
+}
