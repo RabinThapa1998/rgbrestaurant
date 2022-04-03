@@ -14,6 +14,22 @@
   scrollbar-width: none; /* Firefox */
 }
 
+.menupagesearchbar::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
+
+.menupagesearchbar::-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: white;
+}
+
+.menupagesearchbar::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: white;
+}
+
 .swiper {
   max-width: 425px !important;
 }
@@ -136,4 +152,15 @@
   left: 0px;
   justify-content: center !important;
   align-items: center !important;
+}
+
+.menubackgroundimage {
+  background: linear-gradient(
+      0deg,
+      #db3b3f -30.85%,
+      rgba(82, 80, 80, 0.3) 120.86%
+    ),
+    url("assets/menupagebg.png");
+  background-position: center;
+  background-size: cover;
 }

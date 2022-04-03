@@ -54,7 +54,7 @@ const FooterCompsThankyou = () => {
         </tbody>
       </table>
       <div className="font-poppins flex justify-between mt-5 mb-16">
-        <Link to="/menu/2">
+        <Link to="/menu/2" className="m-0 p-0">
           <a className="border rounded flex justify-between items-center py-3 px-1">
             <img
               src={exploremenu}
