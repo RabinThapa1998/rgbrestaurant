@@ -10,8 +10,8 @@ import { useState } from "react";
 
 const FooterCompsYourOrders = ({
   data,
-  yourcart,
-  handleyourCartClick,
+  // yourcart,
+  toggleDrawer,
   handleDelete,
 }) => {
   const [confirmOrder, setConfirmorder] = useState(false);
@@ -24,26 +24,23 @@ const FooterCompsYourOrders = ({
   };
 
   return (
-    <motion.div
-      className="flex flex-col bg-footerColor rounded-t-2xl sticky bottom-0 z-40 "
-      style={{ maxWidth: "425px" }}
-    >
+    <motion.div className="flex flex-col bg-footerColor rounded-t-2xl  z-40 w-full m-0 p-0">
       <div className="flex flex-row justify-end w-full mt-2 pr-2 mb-3">
-        <button className="m-0 p-0" onClick={() => handleyourCartClick()}>
+        <button className="m-0 p-0" onClick={toggleDrawer("bottom", false)}>
           <img src={exit} alt="exit" />
         </button>
       </div>
       {!confirmOrder && (
         <motion.div
           className="flex flex-col  w-full"
-          initial="collapsed"
-          animate={yourcart ? "open" : "collapsed"}
-          exit="collapsed"
-          variants={{
-            open: { opacity: 1, height: "auto" },
-            collapsed: { opacity: 0, height: 0 },
-          }}
-          transition={{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
+          // initial="collapsed"
+          // // animate={yourcart ? "open" : "collapsed"}
+          // exit="collapsed"
+          // variants={{
+          //   open: { opacity: 1, height: "auto" },
+          //   collapsed: { opacity: 0, height: 0 },
+          // }}
+          // transition={{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
         >
           <img
             src={yourorders}
@@ -53,7 +50,7 @@ const FooterCompsYourOrders = ({
           <p className="font-bold text-2xl text-center text-white mt-0 mb-5">
             Your Order's
           </p>
-          <div className="h-96 overflow-auto w-10/12">
+          <div className="h-52 overflow-auto w-10/12">
             {data.map((eachitem) => {
               return (
                 <div

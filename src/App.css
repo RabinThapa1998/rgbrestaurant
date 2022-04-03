@@ -3,6 +3,16 @@
   padding: 0px;
   box-sizing: border-box;
 }
+/* Hide scrollbar for Chrome, Safari and Opera */
+.example::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.example {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
 
 .swiper {
   max-width: 425px !important;
@@ -46,15 +56,18 @@
   background: linear-gradient(98.81deg, #f5f1eb -0.82%, #ebe4d7 101.53%);
 }
 
-.css-1851lcu-MuiButtonBase-root-MuiTab-root {
+.MuiTab-root {
   /* margin: 5px 10px; */
   /* padding: 5px; */
   font-weight: 800 !important;
   font-size: 16px !important;
   text-transform: capitalize !important;
 }
-.css-1851lcu-MuiButtonBase-root-MuiTab-root.Mui-selected {
-  color: white;
+.MuiTab-textColorSecondary {
+  color: #494949 !important;
+}
+.Mui-selected {
+  color: white !important;
   font-style: "nunito";
   font-weight: 900;
   z-index: 10;
@@ -82,10 +95,12 @@
   padding: 0 !important;
 }
 
-.css-6189bu-MuiInputBase-root-MuiInput-root-MuiSelect-root::before {
+/* .css-6189bu-MuiInputBase-root-MuiInput-root-MuiSelect-root::before {
+  border-bottom: none !important;
+} */
+.MuiInput-root::before {
   border-bottom: none !important;
 }
-
 .MuiSelect-standard,
 .MuiInput-input {
   font-weight: 700 !important;
@@ -93,18 +108,32 @@
   color: "#2E2E2E";
   background: #fff !important;
 }
-.css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon,
-.css-1mf6u8l-MuiSvgIcon-root-MuiSelect-icon {
+/* .css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon, */
+.MuiSelect-icon {
   background: #e7e7e7 !important;
   height: 22px;
   width: 22px;
   border-radius: 50%;
 }
-.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input {
-  padding-right: 36px !important;
-  min-width: 16px;
+
+.MuiTabs-scrollButtons {
+  display: inline-flex !important;
 }
 
-.css-1ujnqem-MuiTabs-root .MuiTabs-scrollButtons {
-  display: inline-flex !important;
+/* .css-9emuhu-MuiPaper-root-MuiDrawer-paper {
+  margin: auto;
+  box-shadow: none !important;
+
+  position: inherit;
+  left: -17px !important;
+} */
+
+.MuiDrawer-paper {
+  max-width: 425px !important;
+  position: fixed !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+  left: 0px;
+  justify-content: center !important;
+  align-items: center !important;
 }

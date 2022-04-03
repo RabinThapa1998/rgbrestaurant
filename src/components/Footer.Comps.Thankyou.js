@@ -2,7 +2,7 @@ import exit from "../assets/exit.png";
 import askforbill from "../assets/askforbill.png";
 import exploremenu from "../assets/exploremenu.png";
 import { motion, AnimatePresence } from "framer-motion";
-
+import { Link } from "react-router-dom";
 const FooterCompsThankyou = () => {
   const thankyouData = [
     { sn: 1, orders: "Chicken Momo", qty: "1plate", price: "Rs 500" },
@@ -17,18 +17,18 @@ const FooterCompsThankyou = () => {
   return (
     <motion.div
       className="bg-navbar text-white w-full p-2"
-      initial="collapsed"
-      //   animate={yourcart ? "open" : "collapsed"}
-      animate="open"
-      exit="collapsed"
-      variants={{
-        open: { opacity: 1, height: "auto" },
-        collapsed: { opacity: 0, height: 0 },
-      }}
-      transition={{
-        duration: 0.8,
-        ease: [0.04, 0.62, 0.23, 0.98],
-      }}
+      // initial="collapsed"
+      // //   animate={yourcart ? "open" : "collapsed"}
+      // animate="open"
+      // exit="collapsed"
+      // variants={{
+      //   open: { opacity: 1, height: "auto" },
+      //   collapsed: { opacity: 0, height: 0 },
+      // }}
+      // transition={{
+      //   duration: 0.8,
+      //   ease: [0.04, 0.62, 0.23, 0.98],
+      // }}
     >
       <p className="text-2xl  font-bold text-center ">Thank you</p>
       <table className="table-auto border-collapse  w-full mt-6">
@@ -54,15 +54,17 @@ const FooterCompsThankyou = () => {
         </tbody>
       </table>
       <div className="font-poppins flex justify-between mt-5 mb-16">
-        <button className="border rounded flex justify-between items-center py-3 px-1">
-          <img
-            src={exploremenu}
-            alt="exploremenu"
-            className="mr-2"
-            style={{ width: "21px", height: "21px" }}
-          />
-          <span className="font-extrabold text-xs">Explore Menu</span>
-        </button>
+        <Link to="/menu/2">
+          <a className="border rounded flex justify-between items-center py-3 px-1">
+            <img
+              src={exploremenu}
+              alt="exploremenu"
+              className="mr-2"
+              style={{ width: "21px", height: "21px" }}
+            />
+            <span className="font-extrabold text-xs">Explore Menu</span>
+          </a>
+        </Link>
         <button className="rounded bg-white flex flex-row-reverse justify-between items-center py-3 px-1 shadow-lg">
           <img
             src={askforbill}

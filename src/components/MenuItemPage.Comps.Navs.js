@@ -60,10 +60,11 @@ export default function MenuItemPageCompsNavs() {
       sx={{
         maxWidth: "425px",
         height: "100%",
-        // padding: "0px",
         width: "100%",
       }}
-      style={{ backgroundColor: "#E5E5E5" }}
+      style={{
+        backgroundColor: "#E5E5E5",
+      }}
     >
       <Box
         sx={{
@@ -99,7 +100,7 @@ export default function MenuItemPageCompsNavs() {
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={value}
         onChangeIndex={handleChangeIndex}
-        className="h-screen overflow-auto "
+        className="h-screen overflow-auto example"
       >
         {/* <TabPanel value={value} index={0} dir={theme.direction}>
           <MenuItemPageCompsitems />

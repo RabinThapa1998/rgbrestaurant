@@ -7,16 +7,15 @@ import SearchBar from "../components/SearchBar";
 
 function Homepage() {
   return (
-    <>
-      {/* <HomeNavbar /> */}
-      <div style={{ maxWidth: "425px" }} className="px-3">
+    <div>
+      <HomeNavbar />
+      <div className="relative pt-44">
         <SearchBar />
         <SwiperComponent />
         <DiscountedItems />
         <SpecialDishes />
       </div>
-      {/* <Footer /> */}
-    </>
+    </div>
   );
 }
 

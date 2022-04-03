@@ -7,14 +7,15 @@ import homenavbar5 from "../assets/homenavbar5.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper";
 import Footer from "./Footer";
+import { NavLink } from "react-router-dom";
 
 const HomeNavbar = () => {
   return (
-    <>
-      <nav
-        className="bg-navbar pt-8 px-4 pb-4 rounded-b-2xl m-0 text-white mx-auto shadow-lg z-50 relative"
-        style={{ maxWidth: "425px", position: "sticky", top: "0px" }}
-      >
+    <div
+      className="p-0 m-0  fixed top-0 z-50 -mx-3 w-full"
+      style={{ maxWidth: "425px" }}
+    >
+      <nav className="bg-navbar pt-8 px-4 pb-4 rounded-b-2xl m-0 text-white mx-auto shadow-lg  w-full">
         <div className="flex justify-start items-center m-0">
           <div className="flex flex-col justify-center items-start m-0">
             <h4 className="text-4xl font-extrabold font-poppins">Hello,</h4>
@@ -23,7 +24,9 @@ const HomeNavbar = () => {
             </small>
             <div className="flex justify-between w-full mt-3">
               <button className="bg-white rounded text-black px-4 py-2 shadow-lg">
-                <span className="font-poppins font-semibold text-sm">MENU</span>
+                <span className="font-poppins font-semibold text-sm">
+                  <NavLink to="menu/1">MENU</NavLink>
+                </span>
               </button>
               <button className="text-white  border border-white rounded p-2 flex items-center justify-around mr-3">
                 <img src={bell} alt="bell" className="px-2" />
@@ -76,8 +79,7 @@ const HomeNavbar = () => {
           </Swiper>
         </div>
       </nav>
-      {/* <Footer /> */}
-    </>
+    </div>
   );
 };
 
