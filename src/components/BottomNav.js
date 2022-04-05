@@ -67,8 +67,6 @@ export default function BottomNav() {
           transitionDuration={500}
         >
           <FooterCompsYourOrders
-            data={footerdata}
-            // yourcart={yourcart}
             toggleDrawer={toggleDrawer}
             handleDelete={handleDelete}
           />

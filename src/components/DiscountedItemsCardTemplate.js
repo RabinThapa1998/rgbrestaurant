@@ -2,10 +2,9 @@ import { useState } from "react";
 import discounted1 from "../assets/discounted1.png";
 import discounted2 from "../assets/discounted2.png";
 import addtolist from "../assets/addtolist.png";
-
 import IncDecButtons from "./IncDecButtons";
 
-const Discounteditemscardtemplate = () => {
+const Discounteditemscardtemplate = ({ id, itemname, price }) => {
   const [seemore, setSeemore] = useState(false);
   const [seetext, setSeetext] = useState("see more");
 
@@ -24,9 +23,11 @@ const Discounteditemscardtemplate = () => {
   return (
     <div className="flex-col w-163 border rounded-md border-bordercolor py-2  px-4 shadow-sm discounted-card-gradient mx-2">
       <img src={discounted2} alt="discounted item" />
-      <p className="text-center font-extrabold text-base">Chicken Fried</p>
+      <p className="text-center font-extrabold text-base capitalize">
+        {itemname}
+      </p>
       <p className="text-center font-extrabold text-sm  text-discounteditemgreen">
-        <i>Rs 150</i>
+        <i>{price}</i>
       </p>
       <p className="text-center font-bold text-xs block text-discounteditemred line-through">
         <i>Rs 200</i>
@@ -40,17 +41,7 @@ const Discounteditemscardtemplate = () => {
           {seetext}.
         </button>
       </p>
-      <IncDecButtons color={"green"} />
-
-      <button className="w-32 border-primary border text-addtolist  my-3 rounded  hover:text-white hover:bg-addtolist transition-colors duration-75 ease-linear py-2 font-nunito font-extrabold text-sm flex justify-around px-4">
-        <img
-          src={addtolist}
-          alt="+"
-          style={{ height: "14px", width: "14px" }}
-          className="block mr-1"
-        />
-        <p className="">Add to List</p>
-      </button>
+      <IncDecButtons color={"green"} id={id} position={"flex-col"} />
     </div>
   );
 };

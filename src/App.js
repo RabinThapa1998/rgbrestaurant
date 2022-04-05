@@ -28,7 +28,6 @@ function App() {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
-        {/* <HomeNavbar /> */}
         <Layout>
           <div className="app font-nunito overflow-hidden ">
             <Routes>

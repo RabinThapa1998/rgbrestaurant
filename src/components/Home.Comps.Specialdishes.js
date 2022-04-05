@@ -1,4 +1,5 @@
 import Specialdishescardtemplate from "./SpecialDishesCardTemplate";
+import { data } from "./data";
 
 const SpecialDishes = () => {
   return (
@@ -7,10 +8,17 @@ const SpecialDishes = () => {
         Our <span className="text-primary">Special Dishes:</span>
       </p>
       <div className="flex flex-col">
-        <Specialdishescardtemplate />
-        <Specialdishescardtemplate />
-        <Specialdishescardtemplate />
-        <Specialdishescardtemplate />
+        {data.map((each) => {
+          if (each.special) {
+            return (
+              <Specialdishescardtemplate
+                id={each.id}
+                itemname={each.itemname}
+                price={each.price}
+              />
+            );
+          }
+        })}
       </div>
     </div>
   );

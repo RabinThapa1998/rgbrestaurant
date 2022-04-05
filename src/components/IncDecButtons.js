@@ -1,33 +1,69 @@
 import plus from "../assets/plus.png";
 import minus from "../assets/minus.png";
 import minus2 from "../assets/minus2.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import addtolist from "../assets/addtolist.png";
+import incdecReducer, { counterAction } from "../reducers/CounterReducer";
+import { useDispatch, useSelector } from "react-redux";
 
-const IncDecButtons = ({ color }) => {
-  const [inc, setInc] = useState(0);
-  const handleIncClick = () => {
-    setInc(inc + 1);
-  };
-  const handleDecClick = () => {
-    if (inc > 0) {
-      setInc(inc - 1);
+const IncDecButtons = ({ color, id, position }) => {
+  const [count, setCount] = useState(0);
+  const resultcounts = useSelector((state) => state.counter.value);
+  const updatedcount = resultcounts.find((res) => res.id == id);
+  const dispatch = useDispatch();
+
+  const incCount = () => {
+    if (!updatedcount) {
+      setCount(count + 1);
+    } else {
+      setCount(count + 1);
     }
   };
+  const decCount = () => {
+    if (count > 0) {
+      if (!updatedcount) {
+        setCount(count - 1);
+      } else {
+        setCount(count - 1);
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (updatedcount) setCount(updatedcount.value);
+  }, [updatedcount]);
+
   if (color == "green") {
     return (
-      <div className="specialdish-incrementbtn-container my-2 mx-0 px-2">
+      <div className={`flex ${position} w-full`}>
+        <div className="specialdish-incrementbtn-container my-2 mx-0 px-2">
+          <button
+            className="specialdish-incrementbtn decrement-gradient-green"
+            onClick={() => decCount()}
+          >
+            <img src={minus} alt="minus" />
+          </button>
+          <p className="specialdish-incrementbtn-text">{count}</p>
+          <button
+            className="specialdish-incrementbtn  increment-gradient-green "
+            onClick={() => incCount()}
+          >
+            <img src={plus} alt="plus" />
+          </button>
+        </div>
         <button
-          className="specialdish-incrementbtn decrement-gradient-green"
-          onClick={() => handleDecClick()}
+          onClick={() => {
+            dispatch(counterAction({ id, count }));
+          }}
+          className="addtolist"
         >
-          <img src={minus} alt="minus" />
-        </button>
-        <p className="specialdish-incrementbtn-text">{inc}</p>
-        <button
-          className="specialdish-incrementbtn  increment-gradient-green "
-          onClick={() => handleIncClick()}
-        >
-          <img src={plus} alt="plus" />
+          <img
+            src={addtolist}
+            alt="+"
+            style={{ height: "14px", width: "14px" }}
+            className="block mr-1"
+          />
+          <p className="">Add to List</p>
         </button>
       </div>
     );
@@ -37,14 +73,14 @@ const IncDecButtons = ({ color }) => {
       <div className="specialdish-incrementbtn-container  mx-0">
         <button
           className="specialdish-incrementbtn decrement-gradient-red"
-          onClick={() => handleDecClick()}
+          onClick={() => decCount()}
         >
           <img src={minus2} alt="minus" />
         </button>
-        <p className="specialdish-incrementbtn-text">{inc}</p>
+        <p className="specialdish-incrementbtn-text">{count}</p>
         <button
           className="specialdish-incrementbtn  increment-gradient-red "
-          onClick={() => handleIncClick()}
+          onClick={() => incCount()}
         >
           <img src={plus} alt="plus" />
         </button>

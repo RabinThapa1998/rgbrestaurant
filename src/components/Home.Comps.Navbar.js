@@ -6,7 +6,6 @@ import homenavbar4 from "../assets/homenavbar4.png";
 import homenavbar5 from "../assets/homenavbar5.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper";
-import Footer from "./Footer";
 import { NavLink } from "react-router-dom";
 
 const HomeNavbar = () => {

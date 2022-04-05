@@ -1,4 +1,3 @@
-import Footer from "./Footer";
 import HomeNavbar from "./Home.Comps.Navbar";
 import MenuCompsNavbar from "./Menu.Comps.Navbar";
 import { useParams } from "react-router-dom";

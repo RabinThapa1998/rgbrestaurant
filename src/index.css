@@ -20,3 +20,7 @@
 .specialdish-incrementbtn-text {
   @apply text-specialinctext text-center w-7 font-poppins font-medium text-base;
 }
+
+.addtolist {
+  @apply w-32 border-primary border text-addtolist  my-3 rounded  hover:text-white hover:bg-addtolist transition-colors duration-75 ease-linear py-2 font-nunito font-extrabold text-sm flex justify-around px-4;
+}

@@ -1,5 +1,5 @@
 import Discounteditemscardtemplate from "./DiscountedItemsCardTemplate";
-
+import { data } from "./data";
 const DiscountedItems = () => {
   return (
     <div className="my-4">
@@ -7,9 +7,15 @@ const DiscountedItems = () => {
         Our <span className="text-primary">Offers:</span>
       </p>
       <div className="flex flex-row justify-between  overflow-auto">
-        <Discounteditemscardtemplate />
-        <Discounteditemscardtemplate />
-        <Discounteditemscardtemplate />
+        {data.map((each) => {
+          return (
+            <Discounteditemscardtemplate
+              id={each.id}
+              itemname={each.itemname}
+              price={each.price}
+            />
+          );
+        })}
       </div>
     </div>
   );
