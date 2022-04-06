@@ -31,9 +31,14 @@ module.exports = {
         searchbartext: "#7B7B7B",
         addtolist: "#E64A4E",
         moneygreen: "#018B0F",
+        yourbill: "#69AE49",
       },
       backgroundColor: {
         specialdishpricebg: "rgba(1, 139, 15, 0.8)",
+      },
+      backgroundImage: {
+        menubackground:
+          "linear-gradient(0deg, #DB3B3F -30.85%, rgba(82, 80, 80, 0.25) 126.86%), url('/assets/menupagebg.png')",
       },
     },
   },

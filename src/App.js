@@ -14,6 +14,7 @@ import Progresspage from "./pages/Progress.page";
 import HomeNavbar from "./components/Home.Comps.Navbar";
 import Layout from "./components/Layout";
 import MenuItemPage from "./pages/Menu.Item.page";
+import Paymentpage from "./pages/Payment.page";
 
 const theme = createTheme({
   typography: {
@@ -33,6 +34,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Homepage />} />
               <Route path="progress" element={<Progresspage />} />
+              <Route path="payment" element={<Paymentpage />} />
               <Route path="menu/:menuId" element={<MenuItemPage />} />
             </Routes>
           </div>

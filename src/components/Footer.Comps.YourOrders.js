@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { useState } from "react";
 import { data } from "./data";
+import { pushBillAction, counterAction } from "../reducers/CounterReducer";
 
 const mergeById = (a1, a2) => {
   return a1.map((itm) => ({
@@ -19,23 +20,22 @@ const mergeById = (a1, a2) => {
 };
 const FooterCompsYourOrders = ({ toggleDrawer, handleDelete }) => {
   const [confirmOrder, setConfirmorder] = useState(false);
+  const dispatch = useDispatch();
 
   const resultcounts = useSelector((state) => state.counter.value);
   const filtereddata = data.filter((each) =>
-    resultcounts.some((res) => res.id == each.id && res.value != 0)
+    resultcounts.some((res) => res.id == each.id)
   );
 
   const mergedData = mergeById(filtereddata, resultcounts);
 
-  console.log("filtereddata", filtereddata);
   const handleConfirmmyorder = () => {
-    console.log("resultcounts", resultcounts);
     const isresultCountavailable = resultcounts.find((res) => res.value != 0);
     if (!confirmOrder && isresultCountavailable) {
       setConfirmorder(true);
+      dispatch(pushBillAction(mergedData));
     } else {
       setConfirmorder(false);
-      console.log("list is empty");
     }
   };
 
@@ -110,7 +110,7 @@ const FooterCompsYourOrders = ({ toggleDrawer, handleDelete }) => {
         </div>
       )}
 
-      {confirmOrder && <FooterCompsThankyou mergedData={mergedData} />}
+      {confirmOrder && <FooterCompsThankyou />}
     </div>
   );
 };

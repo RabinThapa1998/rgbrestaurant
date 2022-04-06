@@ -1,11 +1,11 @@
 import { useState } from "react";
-import FooterCompsThankyou from "./Footer.Comps.Thankyou";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const BottomNavButton = ({ toggleDrawer }) => {
-  const [showViewBill, setShowViewBill] = useState(false);
-  const handleViewBill = () => {
-    setShowViewBill(true);
-  };
+  const navigate = useNavigate();
+  const { showPayment } = useSelector((state) => state.payment);
+
   return (
     //bg-footer
     <div className="w-full fixed bottom-0 ">
@@ -13,12 +13,13 @@ const BottomNavButton = ({ toggleDrawer }) => {
         className="mx-auto z-50  bg-footer  h-full "
         style={{ maxWidth: "425px", maxHeight: "76px" }}
       >
-        {showViewBill ? (
-          <div className="flex justify-between items-center w-full mx-auto h-full py-3 px-4">
+        {showPayment ? (
+          <div className="flex justify-end items-center w-full mx-auto h-full py-3 px-4">
             <button
               className="bg-yourbill px-9 py-2 rounded "
               //   onClick={() => handleyourCartClick()}
-              onClick={toggleDrawer("bottom", true)}
+              // onClick={toggleDrawer("bottom", true)}
+              onClick={() => navigate("payment")}
             >
               <span className="font-poppins font-bold text-white text-xl">
                 Your Bill

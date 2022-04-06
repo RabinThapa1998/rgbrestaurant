@@ -2,17 +2,16 @@ import exit from "../assets/exit.png";
 import askforbill from "../assets/askforbill.png";
 import exploremenu from "../assets/exploremenu.png";
 import { Link } from "react-router-dom";
-const FooterCompsThankyou = ({ mergedData }) => {
-  const thankyouData = [
-    { sn: 1, orders: "Chicken Momo", qty: "1plate", price: "Rs 500" },
-    { sn: 1, orders: "Lemon Vodka", qty: "60ml", price: "Rs 750" },
-    { sn: 1, orders: "Pasta", qty: "1bowl", price: "Rs 280" },
-    { sn: 1, orders: "Chicken Momo", qty: "1plate", price: "Rs 500" },
-    { sn: 1, orders: "Chicken Momo", qty: "1plate", price: "Rs 500" },
-    { sn: 1, orders: "Chicken Momo", qty: "1plate", price: "Rs 500" },
-    { sn: 1, orders: "Chicken Momo", qty: "1plate", price: "Rs 500" },
-    { sn: 1, orders: "Chicken Momo", qty: "1plate", price: "Rs 500" },
-  ];
+import { useNavigate } from "react-router-dom";
+
+import { useDispatch, useSelector } from "react-redux";
+import { showPaymentAction } from "../reducers/BottomNavReducer";
+
+const FooterCompsThankyou = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { finalBill } = useSelector((state) => state.counter);
+  console.log("finalBill", finalBill);
   return (
     <div className="bg-navbar text-white w-full p-2">
       <p className="text-2xl  font-bold text-center ">Thank you</p>
@@ -26,10 +25,10 @@ const FooterCompsThankyou = ({ mergedData }) => {
           </tr>
         </thead>
         <tbody className="border-b border-white">
-          {mergedData.map((eachitem, i) => {
+          {finalBill.map((eachitem, i) => {
             return (
               <tr key={eachitem.id}>
-                <td className="text-center">{i}</td>
+                <td className="text-center">{i + 1}</td>
                 <td>{eachitem.itemname}</td>
                 <td>{eachitem.value}</td>
                 <td>{eachitem.price}</td>
@@ -50,7 +49,13 @@ const FooterCompsThankyou = ({ mergedData }) => {
             <span className="font-extrabold text-xs">Explore Menu</span>
           </a>
         </Link>
-        <button className="rounded bg-white flex flex-row-reverse justify-between items-center py-3 px-1 shadow-lg">
+        <button
+          className="rounded bg-white flex flex-row-reverse justify-between items-center py-3 px-1 shadow-lg"
+          onClick={() => {
+            dispatch(showPaymentAction(true));
+            navigate("payment");
+          }}
+        >
           <img
             src={askforbill}
             alt="askforbill"
