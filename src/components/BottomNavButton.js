@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-const BottomNavButton = ({ toggleDrawer }) => {
+const BottomNavButton = ({ toggleDrawer, numberofItems }) => {
   const navigate = useNavigate();
   const { showPayment } = useSelector((state) => state.payment);
 
@@ -13,35 +13,33 @@ const BottomNavButton = ({ toggleDrawer }) => {
         className="mx-auto z-50  bg-footer  h-full "
         style={{ maxWidth: "425px", maxHeight: "76px" }}
       >
-        {showPayment ? (
-          <div className="flex justify-end items-center w-full mx-auto h-full py-3 px-4">
-            <button
-              className="bg-yourbill px-9 py-2 rounded "
-              //   onClick={() => handleyourCartClick()}
-              // onClick={toggleDrawer("bottom", true)}
-              onClick={() => navigate("payment")}
-            >
-              <span className="font-poppins font-bold text-white text-xl">
-                Your Bill
-              </span>
-            </button>
-          </div>
-        ) : (
-          <div className="flex justify-between items-center w-full mx-auto h-full py-3 px-4">
-            <p className="font-poppins font-bold text-2xl">Rs 1,200/-</p>
-            <div className="m-0">
+        <div className="flex justify-around w-full mx-auto h-full py-3 px-4">
+          <div className="m-0 w-2/4">
+            {showPayment && (
               <button
-                className="bg-navbar px-9 py-2 rounded "
-                //   onClick={() => handleyourCartClick()}
-                onClick={toggleDrawer("bottom", true)}
+                className="bg-yourbill px-9 py-2 rounded self-start"
+                onClick={() => navigate("payment")}
               >
                 <span className="font-poppins font-bold text-white text-xl">
-                  Your Cart
+                  Your Bill
                 </span>
               </button>
-            </div>
+            )}
           </div>
-        )}
+          <button
+            className="bg-navbar px-9 py-2 rounded relative"
+            onClick={toggleDrawer("bottom", true)}
+          >
+            <span className="font-poppins font-bold text-white text-xl">
+              Your Cart
+            </span>
+            <div className="bg-moneygreen h-5 w-5 rounded-full border border-white grid place-items-center p-0 absolute -top-2 right-3">
+              <p className="text-xs text-white font-poppins ">
+                {numberofItems}
+              </p>
+            </div>
+          </button>
+        </div>
       </footer>
     </div>
   );

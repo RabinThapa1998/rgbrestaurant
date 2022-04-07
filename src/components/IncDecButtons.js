@@ -51,10 +51,6 @@ const IncDecButtons = ({ color, id, position }) => {
     }
   };
 
-  // useEffect(() => {
-  //   if (updatedcount) setCount(updatedcount.value);
-  // }, [updatedcount]);
-
   if (color == "green") {
     return (
       <div className={`flex ${position} w-full`}>
@@ -77,36 +73,44 @@ const IncDecButtons = ({ color, id, position }) => {
           onClick={() => {
             dispatch(counterAction({ id, count }));
             setVisibleCount(0);
-            dispatch(showPaymentAction(false));
           }}
           className="addtolist"
         >
-          <img
-            src={addtolist}
-            alt="+"
-            style={{ height: "14px", width: "14px" }}
-            className="block mr-1"
-          />
-          <p className="">Add to List</p>
+          <p className="">
+            <span className="text-lg leading-3">+</span> Add to List
+          </p>
         </button>
       </div>
     );
   }
   if (color == "red") {
     return (
-      <div className="specialdish-incrementbtn-container  mx-0">
+      <div className={`flex ${position} w-full`}>
+        <div className="specialdish-incrementbtn-container  mx-0">
+          <button
+            className="specialdish-incrementbtn decrement-gradient-red"
+            onClick={() => decCount()}
+          >
+            <img src={minus2} alt="minus" />
+          </button>
+          <p className="specialdish-incrementbtn-text">{count}</p>
+          <button
+            className="specialdish-incrementbtn  increment-gradient-red "
+            onClick={() => incCount()}
+          >
+            <img src={plus} alt="plus" />
+          </button>
+        </div>
         <button
-          className="specialdish-incrementbtn decrement-gradient-red"
-          onClick={() => decCount()}
+          onClick={() => {
+            dispatch(counterAction({ id, count }));
+            setVisibleCount(0);
+          }}
+          className="addtolist"
         >
-          <img src={minus2} alt="minus" />
-        </button>
-        <p className="specialdish-incrementbtn-text">{count}</p>
-        <button
-          className="specialdish-incrementbtn  increment-gradient-red "
-          onClick={() => incCount()}
-        >
-          <img src={plus} alt="plus" />
+          <p className="">
+            <span className="text-lg leading-3">+</span> Add to List
+          </p>
         </button>
       </div>
     );

@@ -3,6 +3,13 @@ import { createReducer, createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 const initialState = {
   value: [{ id: 0, value: 0 }],
   finalBill: [{ id: 0, value: 0 }],
+  numberofItems: 0,
+};
+
+const numberoItemsGenerator = (state) => {
+  state.numberofItems = state.value.filter(
+    (each) => each.value != 0 && each.id !== 0
+  ).length;
 };
 
 const counterReducer = createSlice({
@@ -24,6 +31,7 @@ const counterReducer = createSlice({
         );
         state.value = [...filtered, topush];
       }
+      numberoItemsGenerator(state);
     },
     pushBillAction(state, action) {
       const temp = [...state.finalBill, ...action.payload];
@@ -39,9 +47,17 @@ const counterReducer = createSlice({
       });
       totals = totals.filter((each) => each.value != 0);
       state.finalBill = totals;
+      state.numberofItems = 0;
     },
+    deleteAction(state, action) {
+      const temp = state.value.filter((each) => each.id !== action.payload);
+      state.value = temp;
+      numberoItemsGenerator(state);
+    },
+    totalCountAction(state, action) {},
   },
 });
 
-export const { counterAction, pushBillAction } = counterReducer.actions;
+export const { counterAction, pushBillAction, deleteAction, totalCountAction } =
+  counterReducer.actions;
 export default counterReducer.reducer;
