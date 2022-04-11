@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { data } from "./data";
 import { pushBillAction, counterAction } from "../reducers/CounterReducer";
+import { showPaymentAction } from "../reducers/BottomNavReducer";
 
 const mergeById = (a1, a2) => {
   return a1.map((itm) => ({
@@ -37,6 +38,7 @@ const FooterCompsYourOrders = ({ toggleDrawer, handleDelete }) => {
     } else {
       setConfirmorder(false);
     }
+    dispatch(showPaymentAction(true));
   };
 
   return (

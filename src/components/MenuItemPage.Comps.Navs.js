@@ -2,7 +2,6 @@ import * as React from "react";
 import PropTypes from "prop-types";
 import SwipeableViews from "react-swipeable-views";
 import { useTheme } from "@mui/material/styles";
-import AppBar from "@mui/material/AppBar";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
@@ -10,6 +9,7 @@ import Box from "@mui/material/Box";
 import { menudata } from "./menuItemdata";
 
 import MenuItemPageCompsitems from "./MenuItemPage.Comps.items";
+import { data } from "./data";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -22,7 +22,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
+        <Box sx={{ p: 0 }}>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -91,8 +91,8 @@ export default function MenuItemPageCompsNavs() {
           <Tab label="Item Five" />
           <Tab label="Item Six" />
           <Tab label="Item Seven" /> */}
-          {menudata.map((label) => {
-            return <Tab label={label.itemname} />;
+          {data.map((eachcategory) => {
+            return <Tab label={eachcategory.category} />;
           })}
         </Tabs>
       </Box>
@@ -126,14 +126,10 @@ export default function MenuItemPageCompsNavs() {
         <TabPanel value={value} index={5} dir={theme.direction}>
           Item six
         </TabPanel> */}
-        {menudata.map((eachdata) => {
+        {data.map((eachdata) => {
           return (
-            <TabPanel
-              value={value}
-              index={eachdata.index}
-              dir={theme.direction}
-            >
-              {eachdata.types.map((itemtype) => {
+            <TabPanel value={value} index={value} dir={theme.direction}>
+              {data.map((itemtype) => {
                 return <MenuItemPageCompsitems itemtype={itemtype} />;
               })}
             </TabPanel>

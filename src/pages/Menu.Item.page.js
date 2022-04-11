@@ -7,7 +7,7 @@ const MenuItemPage = () => {
   console.log("menuId", menuId);
   return (
     <div className="relative">
-      <MenuCompsNavbar />
+      <MenuCompsNavbar menuId={menuId} />
       <div className="pt-44 pb-20 relative">
         <MenuItemPageCompsNavs />
       </div>

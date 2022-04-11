@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
-import { showPaymentAction } from "../reducers/BottomNavReducer";
 
 const FooterCompsThankyou = () => {
   const navigate = useNavigate();
@@ -52,7 +51,6 @@ const FooterCompsThankyou = () => {
         <button
           className="rounded bg-white flex flex-row-reverse justify-between items-center py-3 px-1 shadow-lg"
           onClick={() => {
-            dispatch(showPaymentAction(true));
             navigate("payment");
           }}
         >

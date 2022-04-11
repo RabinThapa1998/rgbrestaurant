@@ -6,9 +6,10 @@ import homenavbar4 from "../assets/homenavbar4.png";
 import homenavbar5 from "../assets/homenavbar5.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper";
-import { NavLink } from "react-router-dom";
+import { Navigate, NavLink } from "react-router-dom";
 
 const HomeNavbar = () => {
+  // const navigate = Navigate();
   return (
     <div
       className="p-0 m-0  fixed top-0 z-50 -mx-3 w-full"
@@ -22,11 +23,12 @@ const HomeNavbar = () => {
               What is your Favourite meal?
             </small>
             <div className="flex justify-between w-full mt-3">
-              <button className="bg-white rounded text-black px-4 py-2 shadow-lg">
-                <span className="font-poppins font-semibold text-sm">
-                  <NavLink to="menu/1">MENU</NavLink>
-                </span>
-              </button>
+              <NavLink
+                className="bg-white rounded text-black px-4 py-2 shadow-lg m-0"
+                to={"menu"}
+              >
+                <span className="font-poppins font-semibold text-sm">MENU</span>
+              </NavLink>
               <button className="text-white  border border-white rounded p-2 flex items-center justify-around mr-3">
                 <img src={bell} alt="bell" className="px-2" />
                 <span className=" text-xs font-nunito font-extrabold">

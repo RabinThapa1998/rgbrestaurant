@@ -11,11 +11,10 @@ import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Homepage from "./pages/Home.page";
 import Progresspage from "./pages/Progress.page";
-import HomeNavbar from "./components/Home.Comps.Navbar";
 import Layout from "./components/Layout";
 import MenuItemPage from "./pages/Menu.Item.page";
 import Paymentpage from "./pages/Payment.page";
-
+import MenuHomePage from "./pages/Menu.page";
 const theme = createTheme({
   typography: {
     fontFamily: `'Nunito',sans-serif`,
@@ -35,6 +34,7 @@ function App() {
               <Route path="/" element={<Homepage />} />
               <Route path="progress" element={<Progresspage />} />
               <Route path="payment" element={<Paymentpage />} />
+              <Route path="menu" element={<MenuHomePage />} />
               <Route path="menu/:menuId" element={<MenuItemPage />} />
             </Routes>
           </div>
