@@ -4,6 +4,8 @@ import backarrow from "../assets/menunavbarbackarrow.png";
 import { NavLink } from "react-router-dom";
 import { categorydata } from "./categorydata";
 import { useNavigate } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import bg from "../assets/menupagebg.png";
 
 const MenuCompsNavbar = ({ menuId }) => {
   const navigate = useNavigate();
@@ -17,10 +19,10 @@ const MenuCompsNavbar = ({ menuId }) => {
 
   return (
     <div
-      className="p-0 m-0  fixed top-0 z-50 -mx-3 w-full"
+      className="p-0 m-0  fixed top-0 -mx-3 w-full overflow-hidden rounded-b-2xl z-50 "
       style={{ maxWidth: "425px" }}
     >
-      <nav className="menubackgroundimage pt-5 px-4 pb-4 rounded-b-2xl m-0 text-white mx-auto z-50 relative">
+      <nav className=" pt-5 px-4 pb-4 m-0 text-white w-full relative z-50 ">
         <div className="flex justify-between items-center h-10 max-w-327 bg-transparent w-full rounded-full mt-5 mb-5 pl-4 pr-2 shadow-md border-white border">
           <input
             type="search"
@@ -49,6 +51,18 @@ const MenuCompsNavbar = ({ menuId }) => {
           </p>
         </div>
       </nav>
+      <div className="  w-full h-full p-0  absolute top-0  z-10 menubggradtrick">
+        <LazyLoadImage
+          // src={
+          //   "https://images.unsplash.com/5/unsplash-kitsune-4.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9&s=fb86e2e09fceac9b363af536b93a1275"
+          // }
+          src={process.env.PUBLIC_URL + "/menupagebg.png"}
+          alt="back"
+          effect="blur"
+          width={"100%"}
+          height={"100%"}
+        />
+      </div>
     </div>
   );
 };

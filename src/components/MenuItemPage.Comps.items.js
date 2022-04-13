@@ -11,7 +11,11 @@ const MenuItemPageCompsitems = ({ itemtype }) => {
       </div>
       <p className="font-nunito font-extrabold text-lg">{itemtype.itemname}</p>
       <div className="flex justify-between align-baseline ">
-        <IncDecButtons color={"red"} id={itemtype.id} />
+        <IncDecButtons
+          color={"red"}
+          id={itemtype.id}
+          position={"flex justify-between"}
+        />
       </div>
       <div className="absolute top-0 left-0 bg-moneygreen rounded-tl rounded-br px-1">
         <p className="text-justify italic font-extrabold text-white">Rs 150</p>

@@ -4,9 +4,9 @@ import { categorydata } from "../components/categorydata";
 
 const MenuHomePage = () => {
   return (
-    <div className="w-96">
+    <div className="relative mx-auto ">
       <MenuCompsNavbar menuId={5577} />
-      <div className="relative pt-44">
+      <div className="relative pt-44 z-0">
         {categorydata.map((data) => {
           return <Catogcard categorydata={data} />;
         })}

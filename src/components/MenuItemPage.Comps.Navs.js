@@ -43,7 +43,7 @@ function a11yProps(index) {
   };
 }
 
-export default function MenuItemPageCompsNavs() {
+export default function MenuItemPageCompsNavs({ menuId }) {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
 
@@ -126,10 +126,10 @@ export default function MenuItemPageCompsNavs() {
         <TabPanel value={value} index={5} dir={theme.direction}>
           Item six
         </TabPanel> */}
-        {data.map((eachdata) => {
+        {data.slice(1, 5).map((eachdata) => {
           return (
             <TabPanel value={value} index={value} dir={theme.direction}>
-              {data.map((itemtype) => {
+              {data.slice(1, 5).map((itemtype) => {
                 return <MenuItemPageCompsitems itemtype={itemtype} />;
               })}
             </TabPanel>

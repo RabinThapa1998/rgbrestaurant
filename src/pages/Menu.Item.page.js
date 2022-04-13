@@ -6,10 +6,10 @@ const MenuItemPage = () => {
   let { menuId } = useParams();
   console.log("menuId", menuId);
   return (
-    <div className="relative">
+    <div className="">
       <MenuCompsNavbar menuId={menuId} />
       <div className="pt-44 pb-20 relative">
-        <MenuItemPageCompsNavs />
+        <MenuItemPageCompsNavs menuId={menuId} />
       </div>
     </div>
   );

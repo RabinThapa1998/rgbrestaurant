@@ -164,3 +164,19 @@
   background-position: center;
   background-size: cover;
 }
+
+.menubggradtrick::before {
+  content: "";
+  display: block;
+  background: linear-gradient(
+    0deg,
+    #db3b3f -30.85%,
+    rgba(82, 80, 80, 0.3) 120.86%
+  );
+  z-index: 20;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
